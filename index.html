@@ -2,360 +2,148 @@
 <html lang="pt-BR">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <meta name="viewport" content="width=device-width,initial-scale=1.0" />
   <title>Anamnese Psiquiátrica</title>
   <style>
-    :root{
-      --bg:#f7f7fb; --card:#fff; --ink:#1f2937; --muted:#6b7280; --primary:#2563eb; --line:#e5e7eb;
+    body {
+      font-family: "Segoe UI", sans-serif;
+      background-color: #f4f6f8;
+      margin: 0;
+      padding: 0;
     }
-    *{box-sizing:border-box}
-    body{font-family:Inter,system-ui,Arial,sans-serif;background:var(--bg);color:var(--ink);margin:0}
-    header{padding:24px 16px;border-bottom:1px solid var(--line);background:#fff;position:sticky;top:0;z-index:10}
-    header h1{margin:0;font-size:20px}
-    main{max-width:1000px;margin:24px auto;padding:0 16px 64px}
-    form{background:var(--card);border:1px solid var(--line);border-radius:12px;padding:24px}
-    fieldset{border:1px solid var(--line);border-radius:10px;padding:16px;margin:16px 0;background:#fff}
-    legend{font-weight:700;color:#111;padding:0 6px}
-    .grid{display:grid;gap:12px}
-    .g2{grid-template-columns:repeat(2,minmax(0,1fr))}
-    .g3{grid-template-columns:repeat(3,minmax(0,1fr))}
-    label{font-weight:600;font-size:14px;margin:6px 0;display:block}
-    input[type="text"],input[type="number"],input[type="date"],select,textarea{
-      width:100%;padding:10px;border:1px solid var(--line);border-radius:8px;background:#fff;font-size:14px
+    main {
+      max-width: 960px;
+      margin: 40px auto;
+      background: #fff;
+      padding: 30px;
+      border-radius: 12px;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.05);
     }
-    textarea{min-height:100px;resize:vertical}
-    .row{display:flex;flex-wrap:wrap;gap:12px}
-    .chip{display:inline-flex;align-items:center;gap:8px;padding:8px 10px;border:1px solid var(--line);
-      border-radius:999px;background:#fafafa;margin:6px 8px 0 0;font-size:14px}
-    .actions{display:flex;gap:12px;justify-content:flex-end;margin-top:20px}
-    button{border:0;border-radius:10px;padding:12px 16px;font-weight:700;cursor:pointer}
-    .primary{background:var(--primary);color:#fff}
-    .ghost{background:#eef2ff;color:#1e3a8a}
-    .hint{color:var(--muted);font-size:12px;margin-top:-6px;margin-bottom:8px}
-    .small{font-size:13px;color:var(--muted)}
-    @media (max-width:800px){.g2,.g3{grid-template-columns:1fr}}
+    h1 {
+      text-align: center;
+      color: #333;
+      font-size: 26px;
+    }
+    fieldset {
+      border: none;
+      margin-bottom: 30px;
+    }
+    legend {
+      font-size: 18px;
+      font-weight: bold;
+      margin-bottom: 10px;
+      color: #1a202c;
+    }
+    label {
+      display: block;
+      font-weight: 600;
+      margin-top: 14px;
+      margin-bottom: 6px;
+    }
+    input, select, textarea {
+      width: 100%;
+      padding: 10px;
+      border-radius: 8px;
+      border: 1px solid #cbd5e0;
+      font-size: 15px;
+      background-color: #fff;
+    }
+    textarea {
+      resize: vertical;
+    }
+    .button-group {
+      text-align: right;
+      margin-top: 20px;
+    }
+    button {
+      background-color: #2563eb;
+      color: white;
+      border: none;
+      padding: 12px 20px;
+      border-radius: 8px;
+      font-size: 15px;
+      font-weight: bold;
+      cursor: pointer;
+    }
+    button:hover {
+      background-color: #1e40af;
+    }
   </style>
 </head>
 <body>
-  <header>
-    <h1>Formulário de Anamnese Psiquiátrica</h1>
-    <div class="small">Baseado no modelo de anamnese clínica e Exame do Estado Mental.</div>
-  </header>
-
   <main>
+    <h1>Formulário de Anamnese Psiquiátrica</h1>
     <form>
       <fieldset>
-        <legend>1. Identificação</legend>
-        <div class="grid g3">
-          <div>
-            <label>Data</label>
-            <input type="date" name="data">
-          </div>
-          <div>
-            <label>Paciente</label>
-            <input type="text" name="paciente" placeholder="Nome completo">
-          </div>
-          <div>
-            <label>Idade</label>
-            <input type="number" name="idade" min="0">
-          </div>
-        </div>
-        <div class="grid g3">
-          <div>
-            <label>Estado civil</label>
-            <input type="text" name="estado_civil" placeholder="Solteiro(a), casado(a), ...">
-          </div>
-          <div>
-            <label>Sexo</label>
-            <select name="sexo">
-              <option value="">Selecione</option>
-              <option>Masculino</option>
-              <option>Feminino</option>
-              <option>Outro</option>
-              <option>Prefere não informar</option>
-            </select>
-          </div>
-          <div>
-            <label>Escolaridade</label>
-            <input type="text" name="escolaridade">
-          </div>
-        </div>
-        <div class="grid g3">
-          <div>
-            <label>Religião</label>
-            <input type="text" name="religiao">
-          </div>
-          <div>
-            <label>Situação laborativa</label>
-            <input type="text" name="situacao_laborativa" placeholder="Empregado, autônomo, desempregado, ...">
-          </div>
-          <div>
-            <label>Presença de acompanhante</label>
-            <input type="text" name="acompanhante" placeholder="Quem? Grau de parentesco?">
-          </div>
-        </div>
-        <div class="grid g2">
-          <div>
-            <label>Indicação</label>
-            <input type="text" name="indicacao">
-          </div>
-          <div>
-            <label>Naturalidade</label>
-            <input type="text" name="naturalidade">
-          </div>
-        </div>
-        <div class="grid g2">
-          <div>
-            <label>Cidade atual</label>
-            <input type="text" name="cidade_atual">
-          </div>
-        </div>
+        <legend>Identificação</legend>
+        <label>Paciente:</label><input type="text" name="paciente">
+        <label>Idade:</label><input type="number" name="idade">
+        <label>Estado Civil:</label><input type="text" name="estado_civil">
+        <label>Sexo:</label><select name="sexo">
+          <option>Masculino</option>
+          <option>Feminino</option>
+          <option>Outro</option>
+        </select>
+        <label>Escolaridade:</label><input type="text" name="escolaridade">
+        <label>Religião:</label><input type="text" name="religiao">
+        <label>Situação Laborativa:</label><input type="text" name="situacao_laborativa">
+        <label>Presença de Acompanhante:</label><input type="text" name="acompanhante">
+        <label>Indicação:</label><input type="text" name="indicacao">
+        <label>Naturalidade:</label><input type="text" name="naturalidade">
+        <label>Cidade Atual:</label><input type="text" name="cidade">
       </fieldset>
 
       <fieldset>
-        <legend>2. Queixa principal e história clínica</legend>
-        <label>Queixa principal</label>
-        <textarea name="queixa_principal" placeholder="Em palavras do paciente..."></textarea>
-
-        <label>História da doença atual (início, precipitantes, progressão, sintomas)</label>
-        <textarea name="hda"></textarea>
-
-        <label>História mórbida pregressa (psiquiátrica, médica, uso de substâncias, farmacológica)</label>
-        <textarea name="hmp"></textarea>
-
-        <label>História mórbida familiar (psiquiátrica, médica, uso de substâncias)</label>
-        <textarea name="hmf"></textarea>
+        <legend>Queixa Principal e Histórico</legend>
+        <label>Queixa Principal:</label><textarea name="queixa_principal"></textarea>
+        <label>História da Doença Atual:</label><textarea name="hda"></textarea>
+        <label>História Mórbida Pregressa:</label><textarea name="hmp"></textarea>
+        <label>História Mórbida Familiar:</label><textarea name="hmf"></textarea>
       </fieldset>
 
       <fieldset>
-        <legend>3. História evolutiva</legend>
-        <label>Pré-natal e perinatal</label>
-        <textarea name="prenatal" placeholder="Gestação, uso de SPA/fármacos maternos, parto, complicações, defeitos congênitos"></textarea>
-
-        <label>Primeira infância</label>
-        <textarea name="infancia_1" placeholder="Relação mãe/bebê, sono, alimentação, marcos (sentar, caminhar, linguagem), controle esfincteriano, cuidadores, comportamentos"></textarea>
-
-        <label>Infância média</label>
-        <textarea name="infancia_2" placeholder="Pré-escola, escola, relação com pares, habilidades intelectuais e motoras, disciplina, doenças"></textarea>
-
-        <label>Puberdade e adolescência</label>
-        <textarea name="adolescencia" placeholder="Grupos, desempenho acadêmico, esportes, hobbies, relacionamentos, SPA, questões emocionais/físicas"></textarea>
-
-        <label>Idade adulta</label>
-        <textarea name="idade_adulta" placeholder="Relacionamentos, decisões acadêmicas/profissionais, história ocupacional, religião, atividade social, lazer, situação de vida, aspectos legais/militares"></textarea>
-
-        <label>Idade adulta média e velhice</label>
-        <textarea name="velhice" placeholder="Mudanças familiares e de carreira, perdas, aposentadoria, envelhecimento"></textarea>
+        <legend>História Evolutiva</legend>
+        <label>Pré-natal e Perinatal:</label><textarea name="prenatal"></textarea>
+        <label>Primeira Infância:</label><textarea name="infancia1"></textarea>
+        <label>Infância Média:</label><textarea name="infancia2"></textarea>
+        <label>Puberdade e Adolescência:</label><textarea name="adolescencia"></textarea>
+        <label>Idade Adulta:</label><textarea name="adulta"></textarea>
+        <label>Idade Adulta Média e Velhice:</label><textarea name="velhice"></textarea>
       </fieldset>
 
       <fieldset>
-        <legend>4. História sexual e valores</legend>
-        <label>História sexual</label>
-        <textarea name="historia_sexual"></textarea>
-
-        <label>Valores</label>
-        <textarea name="valores"></textarea>
+        <legend>História Sexual e Valores</legend>
+        <label>História Sexual:</label><textarea name="historia_sexual"></textarea>
+        <label>Valores:</label><textarea name="valores"></textarea>
       </fieldset>
 
       <fieldset>
-        <legend>5. Exame do Estado Mental</legend>
-
-        <label>Aparência</label>
-        <div class="row">
-          <label class="chip"><input type="checkbox" name="aparencia" value="Adequada">Adequada</label>
-          <label class="chip"><input type="checkbox" name="aparencia" value="Descuidada">Descuidada</label>
-          <label class="chip"><input type="checkbox" name="aparencia" value="Envelhecida">Envelhecida</label>
-          <label class="chip"><input type="checkbox" name="aparencia" value="Infantilizada">Infantilizada</label>
-          <label class="chip"><input type="checkbox" name="aparencia" value="Bizarra">Bizarra</label>
-          <label class="chip"><input type="checkbox" name="aparencia" value="Exibicionista">Exibicionista</label>
-        </div>
-
-        <label>Atitude (em relação ao examinador)</label>
-        <div class="row">
-          <label class="chip"><input type="checkbox" name="atitude" value="Cooperativa">Cooperativa</label>
-          <label class="chip"><input type="checkbox" name="atitude" value="Não cooperativa">Não cooperativa</label>
-          <label class="chip"><input type="checkbox" name="atitude" value="Opositiva">De oposição</label>
-          <label class="chip"><input type="checkbox" name="atitude" value="Gleóide">Gliscroide</label>
-          <label class="chip"><input type="checkbox" name="atitude" value="Querelante">Querelante</label>
-          <label class="chip"><input type="checkbox" name="atitude" value="Inibida">Inibida</label>
-          <label class="chip"><input type="checkbox" name="atitude" value="Desinibida">Desinibida</label>
-          <label class="chip"><input type="checkbox" name="atitude" value="Hostil">Hostil</label>
-          <label class="chip"><input type="checkbox" name="atitude" value="Reivindicativo">Reivindicativo</label>
-          <label class="chip"><input type="checkbox" name="atitude" value="Arrogante">Arrogante</label>
-          <label class="chip"><input type="checkbox" name="atitude" value="Manipuladora">Manipuladora</label>
-          <label class="chip"><input type="checkbox" name="atitude" value="Teatral">Teatral</label>
-          <label class="chip"><input type="checkbox" name="atitude" value="Sedutora">Sedutora</label>
-          <label class="chip"><input type="checkbox" name="atitude" value="Pueril">Pueril</label>
-          <label class="chip"><input type="checkbox" name="atitude" value="Agressiva">Agressiva</label>
-        </div>
-
-        <label>Consciência</label>
-        <div class="row">
-          <label class="chip"><input type="radio" name="consciencia" value="Lúcido">Lucidez</label>
-          <label class="chip"><input type="radio" name="consciencia" value="Obnubilado">Obnubilada</label>
-          <label class="chip"><input type="radio" name="consciencia" value="Estupor">Estupor</label>
-          <label class="chip"><input type="radio" name="consciencia" value="Coma">Coma</label>
-        </div>
-
-        <label>Orientação</label>
-        <div class="row">
-          <label class="chip"><input type="checkbox" name="orientacao" value="Auto e alopsíquica">Orientado (auto e alopsiquicamente)</label>
-          <label class="chip"><input type="checkbox" name="orientacao" value="Desorientação autopsíquica">Desorientação autopsíquica</label>
-          <label class="chip"><input type="checkbox" name="orientacao" value="Desorientação alopsíquica">Desorientação alopsíquica</label>
-        </div>
-
-        <label>Atenção</label>
-        <div class="hint">Vigilância e Tenacidade</div>
-        <div class="row">
-          <span class="chip"><input type="radio" name="vigilancia" value="Normovigil">Normovigil</span>
-          <span class="chip"><input type="radio" name="vigilancia" value="Hipovigil">Hipovigil</span>
-          <span class="chip"><input type="radio" name="vigilancia" value="Hipervigil">Hipervigil</span>
-        </div>
-        <div class="row">
-          <span class="chip"><input type="radio" name="tenacidade" value="Normotenaz">Normotenaz</span>
-          <span class="chip"><input type="radio" name="tenacidade" value="Hipotenaz">Hipotenaz</span>
-          <span class="chip"><input type="radio" name="tenacidade" value="Hipertenaz">Hipertenaz</span>
-        </div>
-
-        <label>Memória</label>
-        <div class="row">
-          <label class="chip"><input type="radio" name="memoria" value="Preservada">Preservada</label>
-          <label class="chip"><input type="radio" name="memoria" value="Prejudicada">Prejudicada</label>
-        </div>
-        <div class="hint">Se prejudicada: hipomnésia, amnésia, paramnésia, hipermnésia</div>
-        <input type="text" name="memoria_detalhe" placeholder="Detalhes">
-
-        <label>Sensopercepção</label>
-        <div class="row">
-          <label class="chip"><input type="checkbox" name="sensopercepcao" value="Sem alteração">Sem alteração</label>
-          <label class="chip"><input type="checkbox" name="sensopercepcao" value="Hipoestesia">Hipoestesia</label>
-          <label class="chip"><input type="checkbox" name="sensopercepcao" value="Hiperestesia">Hiperestesia</label>
-          <label class="chip"><input type="checkbox" name="sensopercepcao" value="Anestesia">Anestesia</label>
-          <label class="chip"><input type="checkbox" name="sensopercepcao" value="Ilusão">Ilusão</label>
-          <label class="chip"><input type="checkbox" name="sensopercepcao" value="Pseudoalucinação">Pseudoalucinação</label>
-          <label class="chip"><input type="checkbox" name="sensopercepcao" value="Alucinação">Alucinação</label>
-        </div>
-        <input type="text" name="alucinacao_tipo" placeholder="Tipo (auditiva, visual, gustativa, olfativa, cenestésica, cinestésica, hipnopômpica, hipnagógica)">
-
-        <label>Pensamento</label>
-        <div class="hint">Produção, forma e conteúdo</div>
-        <div class="row">
-          <span class="chip"><input type="checkbox" name="pensamento_producao" value="Lógico">Produção: Lógico</span>
-          <span class="chip"><input type="checkbox" name="pensamento_producao" value="Mágico">Produção: Mágico</span>
-        </div>
-        <div class="row">
-          <span class="chip"><input type="checkbox" name="pensamento_forma" value="Fio associativo preservado">Fio associativo preservado</span>
-          <span class="chip"><input type="checkbox" name="pensamento_forma" value="Lentificação/Inibição">Lentificação/Inibição</span>
-          <span class="chip"><input type="checkbox" name="pensamento_forma" value="Bloqueio/Interceptação">Bloqueio/Interceptação</span>
-          <span class="chip"><input type="checkbox" name="pensamento_forma" value="Aceleração">Aceleração</span>
-          <span class="chip"><input type="checkbox" name="pensamento_forma" value="Fuga de ideias">Fuga de ideias</span>
-          <span class="chip"><input type="checkbox" name="pensamento_forma" value="Afrouxamento associativo">Afrouxamento associativo</span>
-          <span class="chip"><input type="checkbox" name="pensamento_forma" value="Desagregação">Desagregação</span>
-        </div>
-        <div class="row">
-          <span class="chip"><input type="checkbox" name="pensamento_conteudo" value="Sem alteração">Conteúdo: Sem alteração</span>
-          <span class="chip"><input type="checkbox" name="pensamento_conteudo" value="Ideia sobrevalorizada">Ideia sobrevalorizada</span>
-          <span class="chip"><input type="checkbox" name="pensamento_conteudo" value="Pobreza ideativa">Pobreza ideativa</span>
-          <span class="chip"><input type="checkbox" name="pensamento_conteudo" value="Concretismo">Concretismo</span>
-          <span class="chip"><input type="checkbox" name="pensamento_conteudo" value="Ideia delirante">Ideia delirante</span>
-        </div>
-        <input type="text" name="pensamento_obs" placeholder="Obs.: desvalia, culpa, suicídio, obsessiva, fóbica; delírio: persecutório, referência, erotomaníaco, ciúme, grandeza">
-
-        <label>Afetividade</label>
-        <div class="row">
-          <label class="chip"><input type="checkbox" name="afetividade" value="Eutímico">Eutímico</label>
-          <label class="chip"><input type="checkbox" name="afetividade" value="Depressivo">Depressivo</label>
-          <label class="chip"><input type="checkbox" name="afetividade" value="Euforia">Euforia</label>
-          <label class="chip"><input type="checkbox" name="afetividade" value="Ansioso">Ansioso</label>
-          <label class="chip"><input type="checkbox" name="afetividade" value="Irritável">Irritável</label>
-        </div>
-        <div class="row">
-          <label class="chip"><input type="radio" name="modulacao" value="Modulado">Modulado</label>
-          <label class="chip"><input type="radio" name="modulacao" value="Hipomodulado">Hipomodulado/Embotado</label>
-          <label class="chip"><input type="radio" name="modulacao" value="Hipermodulado">Hipermodulado (labilidade/incontinência)</label>
-        </div>
-
-        <label>Conduta</label>
-        <div class="row">
-          <label class="chip"><input type="checkbox" name="conduta" value="Sem alteração">Sem alteração</label>
-        </div>
-        <div class="hint">Vontade</div>
-        <div class="row">
-          <label class="chip"><input type="checkbox" name="vontade" value="Hipo/Hyper/Abulia">Hipobulia / Hipertimia / Abulia</label>
-          <label class="chip"><input type="checkbox" name="vontade" value="Intensificação impulsos">Intensificação de impulsos</label>
-          <label class="chip"><input type="checkbox" name="vontade" value="Enfraquecimento impulsos">Enfraquecimento de impulsos</label>
-          <label class="chip"><input type="checkbox" name="vontade" value="Compulsão">Compulsão (dipsomania, cleptomania, piromania, oniomania)</label>
-        </div>
-        <div class="hint">Psicomotricidade</div>
-        <div class="row">
-          <label class="chip"><input type="checkbox" name="psicomotricidade" value="Hipocinesia">Hipocinesia</label>
-          <label class="chip"><input type="checkbox" name="psicomotricidade" value="Hipercinesia">Hipercinesia</label>
-          <label class="chip"><input type="checkbox" name="psicomotricidade" value="Estereotipia">Estereotipia</label>
-          <label class="chip"><input type="checkbox" name="psicomotricidade" value="Maneirismos">Maneirismos</label>
-          <label class="chip"><input type="checkbox" name="psicomotricidade" value="Tiques">Tiques</label>
-        </div>
-        <div class="hint">Pragmatismo</div>
-        <div class="row">
-          <label class="chip"><input type="checkbox" name="pragmatismo" value="Sem alteração">Sem alteração</label>
-          <label class="chip"><input type="checkbox" name="pragmatismo" value="Hipo">Hipopragmatismo</label>
-          <label class="chip"><input type="checkbox" name="pragmatismo" value="A">Apragmatismo</label>
-        </div>
-
-        <label>Linguagem oral (fala)</label>
-        <div class="hint">Tom, velocidade, latência, qualidade</div>
-        <div class="row">
-          <label class="chip"><input type="checkbox" name="ling_tom" value="Normofonia">Normofonia</label>
-          <label class="chip"><input type="checkbox" name="ling_tom" value="Hipofonia">Hipofonia</label>
-          <label class="chip"><input type="checkbox" name="ling_tom" value="Hiperfonia">Hiperfonia</label>
-        </div>
-        <div class="row">
-          <label class="chip"><input type="checkbox" name="ling_vel" value="Normolalia">Normolalia</label>
-          <label class="chip"><input type="checkbox" name="ling_vel" value="Bradilalia">Bradilalia</label>
-          <label class="chip"><input type="checkbox" name="ling_vel" value="Taquilalia">Taquilalia</label>
-        </div>
-        <div class="row">
-          <label class="chip"><input type="checkbox" name="ling_lat" value="Sem alteração">Latência sem alteração</label>
-          <label class="chip"><input type="checkbox" name="ling_lat" value="Diminuída">Latência diminuída</label>
-          <label class="chip"><input type="checkbox" name="ling_lat" value="Aumentada">Latência aumentada</label>
-        </div>
-        <div class="row">
-          <label class="chip"><input type="checkbox" name="ling_qual" value="Ecolalia">Ecolalia</label>
-          <label class="chip"><input type="checkbox" name="ling_qual" value="Solilóquio">Solilóquio</label>
-          <label class="chip"><input type="checkbox" name="ling_qual" value="Neologismos">Neologismos</label>
-          <label class="chip"><input type="checkbox" name="ling_qual" value="Palilalia">Pedolalia/Palilalia</label>
-          <label class="chip"><input type="checkbox" name="ling_qual" value="Mutismo">Mutismo</label>
-          <label class="chip"><input type="checkbox" name="ling_qual" value="Jargonofasia">Jargonofasia</label>
-        </div>
-
-        <label>Inteligência (impressão clínica)</label>
-        <div class="row">
-          <label class="chip"><input type="radio" name="inteligencia" value="Inferior à média">Aparentemente inferior à média</label>
-          <label class="chip"><input type="radio" name="inteligencia" value="Média">Aparentemente média</label>
-          <label class="chip"><input type="radio" name="inteligencia" value="Superior à média">Aparentemente superior à média</label>
-        </div>
+        <legend>Exame do Estado Mental</legend>
+        <label>Aparência:</label><input type="text" name="aparencia" placeholder="Adequada, descuidada, etc.">
+        <label>Atitude:</label><input type="text" name="atitude" placeholder="Cooperativa, hostil, manipuladora, etc.">
+        <label>Consciência:</label><input type="text" name="consciencia" placeholder="Lúcido, obnubilado, etc.">
+        <label>Orientação:</label><input type="text" name="orientacao">
+        <label>Atenção (Vigilância e Tenacidade):</label><input type="text" name="atencao">
+        <label>Memória:</label><input type="text" name="memoria">
+        <label>Sensopercepção:</label><input type="text" name="sensopercepcao">
+        <label>Pensamento (Produção, Forma, Conteúdo):</label><textarea name="pensamento"></textarea>
+        <label>Afetividade:</label><input type="text" name="afetividade">
+        <label>Conduta:</label><textarea name="conduta"></textarea>
+        <label>Linguagem:</label><textarea name="linguagem"></textarea>
+        <label>Inteligência:</label><input type="text" name="inteligencia">
       </fieldset>
 
       <fieldset>
-        <legend>6. Exames complementares, diagnóstico e plano</legend>
-        <label>Exames complementares</label>
-        <textarea name="exames"></textarea>
-
-        <label>Diagnóstico inicial (sindrômico, nosológico)</label>
-        <textarea name="dx_inicial"></textarea>
-
-        <label>Diagnóstico diferencial</label>
-        <textarea name="dx_diferencial"></textarea>
-
-        <label>Plano terapêutico</label>
-        <textarea name="plano"></textarea>
+        <legend>Diagnóstico e Plano Terapêutico</legend>
+        <label>Exames Complementares:</label><textarea name="exames"></textarea>
+        <label>Diagnóstico Inicial:</label><textarea name="diagnostico_inicial"></textarea>
+        <label>Diagnóstico Diferencial:</label><textarea name="diagnostico_diferencial"></textarea>
+        <label>Plano Terapêutico:</label><textarea name="plano_terapeutico"></textarea>
       </fieldset>
 
-      <div class="actions">
-        <button type="reset" class="ghost">Limpar</button>
-        <button type="submit" class="primary">Salvar</button>
+      <div class="button-group">
+        <button type="submit">Salvar</button>
       </div>
-
-      <p class="small">Observação: para salvar/armazenar as respostas, integre com um serviço (ex.: planilha, e-mail, backend). Posso te orientar.</p>
     </form>
   </main>
 </body>
