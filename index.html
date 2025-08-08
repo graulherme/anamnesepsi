@@ -2,149 +2,179 @@
 <html lang="pt-BR">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width,initial-scale=1.0" />
-  <title>Anamnese Psiquiátrica</title>
+  <title>Anamnese Psiquiátrica - Acordeão</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
   <style>
     body {
-      font-family: "Segoe UI", sans-serif;
+      font-family: 'Segoe UI', sans-serif;
       background-color: #f4f6f8;
       margin: 0;
-      padding: 0;
+      padding: 20px;
     }
-    main {
+    .container {
       max-width: 960px;
-      margin: 40px auto;
+      margin: auto;
       background: #fff;
-      padding: 30px;
       border-radius: 12px;
-      box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+      box-shadow: 0 0 10px rgba(0,0,0,0.05);
+      overflow: hidden;
     }
     h1 {
       text-align: center;
+      padding: 20px;
       color: #333;
-      font-size: 26px;
     }
-    fieldset {
-      border: none;
-      margin-bottom: 30px;
+    .section {
+      border-top: 1px solid #ddd;
     }
-    legend {
-      font-size: 18px;
+    .header {
+      background-color: #e0e7ff;
+      padding: 14px 20px;
+      cursor: pointer;
       font-weight: bold;
-      margin-bottom: 10px;
-      color: #1a202c;
+      transition: background 0.3s;
+    }
+    .header:hover {
+      background-color: #c7d2fe;
+    }
+    .content {
+      display: none;
+      padding: 20px;
+      border-top: 1px solid #eee;
+      animation: fadeIn 0.3s ease-in;
     }
     label {
       display: block;
-      font-weight: 600;
-      margin-top: 14px;
-      margin-bottom: 6px;
+      margin: 12px 0 4px;
+      font-weight: 500;
     }
     input, select, textarea {
       width: 100%;
       padding: 10px;
-      border-radius: 8px;
-      border: 1px solid #cbd5e0;
-      font-size: 15px;
+      border: 1px solid #ccc;
+      border-radius: 6px;
+      font-size: 14px;
+      margin-bottom: 12px;
       background-color: #fff;
     }
     textarea {
       resize: vertical;
-    }
-    .button-group {
-      text-align: right;
-      margin-top: 20px;
+      min-height: 80px;
     }
     button {
+      display: block;
+      margin: 20px auto;
+      padding: 12px 24px;
       background-color: #2563eb;
       color: white;
-      border: none;
-      padding: 12px 20px;
-      border-radius: 8px;
-      font-size: 15px;
       font-weight: bold;
+      border: none;
+      border-radius: 8px;
       cursor: pointer;
     }
     button:hover {
       background-color: #1e40af;
     }
+    @keyframes fadeIn {
+      from {opacity: 0;}
+      to {opacity: 1;}
+    }
   </style>
 </head>
 <body>
-  <main>
+  <div class="container">
     <h1>Formulário de Anamnese Psiquiátrica</h1>
     <form>
-      <fieldset>
-        <legend>Identificação</legend>
-        <label>Paciente:</label><input type="text" name="paciente">
-        <label>Idade:</label><input type="number" name="idade">
-        <label>Estado Civil:</label><input type="text" name="estado_civil">
-        <label>Sexo:</label><select name="sexo">
-          <option>Masculino</option>
-          <option>Feminino</option>
-          <option>Outro</option>
-        </select>
-        <label>Escolaridade:</label><input type="text" name="escolaridade">
-        <label>Religião:</label><input type="text" name="religiao">
-        <label>Situação Laborativa:</label><input type="text" name="situacao_laborativa">
-        <label>Presença de Acompanhante:</label><input type="text" name="acompanhante">
-        <label>Indicação:</label><input type="text" name="indicacao">
-        <label>Naturalidade:</label><input type="text" name="naturalidade">
-        <label>Cidade Atual:</label><input type="text" name="cidade">
-      </fieldset>
 
-      <fieldset>
-        <legend>Queixa Principal e Histórico</legend>
-        <label>Queixa Principal:</label><textarea name="queixa_principal"></textarea>
-        <label>História da Doença Atual:</label><textarea name="hda"></textarea>
-        <label>História Mórbida Pregressa:</label><textarea name="hmp"></textarea>
-        <label>História Mórbida Familiar:</label><textarea name="hmf"></textarea>
-      </fieldset>
-
-      <fieldset>
-        <legend>História Evolutiva</legend>
-        <label>Pré-natal e Perinatal:</label><textarea name="prenatal"></textarea>
-        <label>Primeira Infância:</label><textarea name="infancia1"></textarea>
-        <label>Infância Média:</label><textarea name="infancia2"></textarea>
-        <label>Puberdade e Adolescência:</label><textarea name="adolescencia"></textarea>
-        <label>Idade Adulta:</label><textarea name="adulta"></textarea>
-        <label>Idade Adulta Média e Velhice:</label><textarea name="velhice"></textarea>
-      </fieldset>
-
-      <fieldset>
-        <legend>História Sexual e Valores</legend>
-        <label>História Sexual:</label><textarea name="historia_sexual"></textarea>
-        <label>Valores:</label><textarea name="valores"></textarea>
-      </fieldset>
-
-      <fieldset>
-        <legend>Exame do Estado Mental</legend>
-        <label>Aparência:</label><input type="text" name="aparencia" placeholder="Adequada, descuidada, etc.">
-        <label>Atitude:</label><input type="text" name="atitude" placeholder="Cooperativa, hostil, manipuladora, etc.">
-        <label>Consciência:</label><input type="text" name="consciencia" placeholder="Lúcido, obnubilado, etc.">
-        <label>Orientação:</label><input type="text" name="orientacao">
-        <label>Atenção (Vigilância e Tenacidade):</label><input type="text" name="atencao">
-        <label>Memória:</label><input type="text" name="memoria">
-        <label>Sensopercepção:</label><input type="text" name="sensopercepcao">
-        <label>Pensamento (Produção, Forma, Conteúdo):</label><textarea name="pensamento"></textarea>
-        <label>Afetividade:</label><input type="text" name="afetividade">
-        <label>Conduta:</label><textarea name="conduta"></textarea>
-        <label>Linguagem:</label><textarea name="linguagem"></textarea>
-        <label>Inteligência:</label><input type="text" name="inteligencia">
-      </fieldset>
-
-      <fieldset>
-        <legend>Diagnóstico e Plano Terapêutico</legend>
-        <label>Exames Complementares:</label><textarea name="exames"></textarea>
-        <label>Diagnóstico Inicial:</label><textarea name="diagnostico_inicial"></textarea>
-        <label>Diagnóstico Diferencial:</label><textarea name="diagnostico_diferencial"></textarea>
-        <label>Plano Terapêutico:</label><textarea name="plano_terapeutico"></textarea>
-      </fieldset>
-
-      <div class="button-group">
-        <button type="submit">Salvar</button>
+      <div class="section">
+        <div class="header" onclick="toggle(this)">1. Identificação</div>
+        <div class="content">
+          <label>Paciente:</label><input type="text" name="paciente">
+          <label>Idade:</label><input type="number" name="idade">
+          <label>Estado Civil:</label><input type="text" name="estado_civil">
+          <label>Sexo:</label>
+          <select name="sexo">
+            <option>Masculino</option>
+            <option>Feminino</option>
+            <option>Outro</option>
+          </select>
+          <label>Escolaridade:</label><input type="text" name="escolaridade">
+          <label>Religião:</label><input type="text" name="religiao">
+          <label>Situação Laborativa:</label><input type="text" name="laborativa">
+          <label>Acompanhante:</label><input type="text" name="acompanhante">
+          <label>Indicação:</label><input type="text" name="indicacao">
+          <label>Naturalidade:</label><input type="text" name="naturalidade">
+          <label>Cidade Atual:</label><input type="text" name="cidade_atual">
+        </div>
       </div>
+
+      <div class="section">
+        <div class="header" onclick="toggle(this)">2. Queixa Principal e História Clínica</div>
+        <div class="content">
+          <label>Queixa Principal:</label><textarea name="queixa"></textarea>
+          <label>História da Doença Atual:</label><textarea name="hda"></textarea>
+          <label>História Mórbida Pregressa:</label><textarea name="hmp"></textarea>
+          <label>História Mórbida Familiar:</label><textarea name="hmf"></textarea>
+        </div>
+      </div>
+
+      <div class="section">
+        <div class="header" onclick="toggle(this)">3. História Evolutiva</div>
+        <div class="content">
+          <label>Pré-natal e Perinatal:</label><textarea name="prenatal"></textarea>
+          <label>Primeira Infância:</label><textarea name="infancia1"></textarea>
+          <label>Infância Média:</label><textarea name="infancia2"></textarea>
+          <label>Puberdade e Adolescência:</label><textarea name="adolescencia"></textarea>
+          <label>Idade Adulta:</label><textarea name="adulta"></textarea>
+          <label>Idade Adulta Média e Velhice:</label><textarea name="velhice"></textarea>
+        </div>
+      </div>
+
+      <div class="section">
+        <div class="header" onclick="toggle(this)">4. História Sexual e Valores</div>
+        <div class="content">
+          <label>História Sexual:</label><textarea name="sexual"></textarea>
+          <label>Valores:</label><textarea name="valores"></textarea>
+        </div>
+      </div>
+
+      <div class="section">
+        <div class="header" onclick="toggle(this)">5. Exame do Estado Mental</div>
+        <div class="content">
+          <label>Aparência:</label><input type="text" name="aparencia">
+          <label>Atitude:</label><input type="text" name="atitude">
+          <label>Consciência:</label><input type="text" name="consciencia">
+          <label>Orientação:</label><input type="text" name="orientacao">
+          <label>Atenção:</label><input type="text" name="atencao">
+          <label>Memória:</label><input type="text" name="memoria">
+          <label>Sensopercepção:</label><input type="text" name="sensopercepcao">
+          <label>Pensamento:</label><textarea name="pensamento"></textarea>
+          <label>Afetividade:</label><input type="text" name="afetividade">
+          <label>Conduta:</label><textarea name="conduta"></textarea>
+          <label>Linguagem:</label><textarea name="linguagem"></textarea>
+          <label>Inteligência:</label><input type="text" name="inteligencia">
+        </div>
+      </div>
+
+      <div class="section">
+        <div class="header" onclick="toggle(this)">6. Diagnóstico e Plano Terapêutico</div>
+        <div class="content">
+          <label>Exames Complementares:</label><textarea name="exames"></textarea>
+          <label>Diagnóstico Inicial:</label><textarea name="diagnostico"></textarea>
+          <label>Diagnóstico Diferencial:</label><textarea name="diferencial"></textarea>
+          <label>Plano Terapêutico:</label><textarea name="plano"></textarea>
+        </div>
+      </div>
+
+      <button type="submit">Salvar</button>
     </form>
-  </main>
+  </div>
+
+  <script>
+    function toggle(el) {
+      const content = el.nextElementSibling;
+      content.style.display = content.style.display === 'block' ? 'none' : 'block';
+    }
+  </script>
 </body>
 </html>
